@@ -1,0 +1,15 @@
+software
+resources
+waiting
+ready
+running
+SRTF         111111111
+thrashing
+multi-programming
+Contiguous-memory allocation
+Pure paging 11111111111111111
+contiguous allocation 11111111
+linked allocation
+indexed allocation
+FIFO
+API   111111
