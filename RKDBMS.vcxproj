@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5B28A694-15BF-4485-BEF5-F4EC6E378158}</ProjectGuid>
+    <RootNamespace>RKDBMS</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)\Output\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\Output\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\database.ico" />
+    <None Include="res\child.ico" />
+    <None Include="res\RKDBMS.ico" />
+    <None Include="res\RKDBMS.rc2" />
+    <None Include="res\RKDBMSDoc.ico" />
+    <None Include="res\table.ico" />
+    <None Include="res\Toolbar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AppException.h" />
+    <ClInclude Include="CharHelper.h" />
+    <ClInclude Include="DataStructure.h" />
+    <ClInclude Include="DBDao.h" />
+    <ClInclude Include="DBEntity.h" />
+    <ClInclude Include="DBLogic.h" />
+    <ClInclude Include="DBView.h" />
+    <ClInclude Include="FieldDlg.h" />
+    <ClInclude Include="FieldEntity.h" />
+    <ClInclude Include="FileHelper.h" />
+    <ClInclude Include="FileLogic.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="NewTableDlg.h" />
+    <ClInclude Include="RecordDao.h" />
+    <ClInclude Include="RecordDlg.h" />
+    <ClInclude Include="RecordEntity.h" />
+    <ClInclude Include="RecordLogic.h" />
+    <ClInclude Include="RecordsView.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RKDBMS.h" />
+    <ClInclude Include="RKDBMSDoc.h" />
+    <ClInclude Include="RKDBMSView.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TableDao.h" />
+    <ClInclude Include="TableEntity.h" />
+    <ClInclude Include="TableLogic.h" />
+    <ClInclude Include="TableView.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TimeHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AppException.cpp" />
+    <ClCompile Include="CharHelper.cpp" />
+    <ClCompile Include="DBDao.cpp" />
+    <ClCompile Include="DBEntity.cpp" />
+    <ClCompile Include="DBLogic.cpp" />
+    <ClCompile Include="DBView.cpp" />
+    <ClCompile Include="FieldDlg.cpp" />
+    <ClCompile Include="FieldEntity.cpp" />
+    <ClCompile Include="FileHelper.cpp" />
+    <ClCompile Include="FileLogic.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="NewTableDlg.cpp" />
+    <ClCompile Include="RecordDao.cpp" />
+    <ClCompile Include="RecordDlg.cpp" />
+    <ClCompile Include="RecordEntity.cpp" />
+    <ClCompile Include="RecordLogic.cpp" />
+    <ClCompile Include="RecordsView.cpp" />
+    <ClCompile Include="RKDBMS.cpp" />
+    <ClCompile Include="RKDBMSDoc.cpp" />
+    <ClCompile Include="RKDBMSView.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TableDao.cpp" />
+    <ClCompile Include="TableEntity.cpp" />
+    <ClCompile Include="TableLogic.cpp" />
+    <ClCompile Include="TableView.cpp" />
+    <ClCompile Include="TimeHelper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RKDBMS.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="RKDBMS.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
