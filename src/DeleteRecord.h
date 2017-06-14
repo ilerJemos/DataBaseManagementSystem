@@ -1,0 +1,2 @@
+
+bool DeleteRecord(int strlen);
