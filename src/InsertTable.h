@@ -1,3 +1,0 @@
-
-
-bool InsertTable(int strNum);

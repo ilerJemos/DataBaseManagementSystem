@@ -1,2 +1,0 @@
-# DataBaseManagementSystem
-DBMSPracticeFromRuanko
