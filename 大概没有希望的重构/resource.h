@@ -7,6 +7,7 @@
 #define ID_RUANKO_TITLE                 101
 #define IDR_MAINFRAME                   128
 #define IDR_DBMSTYPE                    130
+#define IDI_ICON_DATABASE               311
 #define ID_SYSTEM_EXIT                  32771
 #define ID_DATABASE_CREATEDATABASE      32772
 #define ID_DATABASE_OPENDATABASE        32773
