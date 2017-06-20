@@ -24,6 +24,11 @@ public:
 
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	virtual void OnInitialUpdate();	//	View initialization function
+
+private:
+	CImageList m_imageList;	//	Tree image list
 };
 
 
