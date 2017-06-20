@@ -1,0 +1,35 @@
+A starts
+A update count set money = 600 where name = zhFei 
+A commits
+B starts
+B update count set money = 100 where name = lBei 
+B update count set money = 800 where name = zhFei 
+B commits
+B starts
+B update count set money = -300 where name = lBei 
+B update count set money = 1000 where name = zhFei 
+B commits
+B starts
+B update count set money = -700 where name = lBei 
+B commits
+B starts
+B update count set money = -1100 where name = lBei 
+B update count set money = 1200 where name = zhFei 
+B commits
+e starts
+e update count set money = -700 where name = lBei 
+e update count set money = 1000 where name = zhFei 
+e commits
+A starts
+A update count set money = 1200 where name = zhFei 
+A commits
+B starts
+B update count set money = 1600 where name = lBei 
+B update count set money = 1200 where name = zhFei 
+A starts
+A update count set money = 1400 where name = zhFei 
+A commits
+B starts
+B update count set money = 1600 where name = lBei 
+B update count set money = 1600 where name = zhFei 
+B commits
