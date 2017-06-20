@@ -1,0 +1,1 @@
+bool setOperate(int strlen);
