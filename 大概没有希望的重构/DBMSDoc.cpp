@@ -11,6 +11,11 @@
 
 #include "DBMSDoc.h"
 
+#include "AppException.h"
+
+#include "DBEntity.h"	
+#include "DBLogic.h"	
+
 #include <propkey.h>
 
 #ifdef _DEBUG
@@ -29,7 +34,7 @@ END_MESSAGE_MAP()
 
 CDBMSDoc::CDBMSDoc()
 {
-	// TODO: 在此添加一次性构造代码
+	m_strError = _T("");	//	Initialize the exception information
 
 }
 
@@ -37,14 +42,45 @@ CDBMSDoc::~CDBMSDoc()
 {
 }
 
+/***************************************************************
+[FunctionName] OnNewDocument
+[Function] Create a new document
+[Argument] void
+[ReturnedValue] BOOL:TRUE if the operation is successful; otherwise FALSE.
+***************************************************************/
 BOOL CDBMSDoc::OnNewDocument()
 {
 	if (!CDocument::OnNewDocument())
 		return FALSE;
 
-	// TODO: 在此添加重新初始化代码
-	// (SDI 文档将重用该文档)
-	this->SetTitle(_T("No Database"));
+	m_dbEntity.SetName(_T("Test"));	// The default database is Ruanko
+
+	CDBLogic dbLogic;
+	try
+	{
+		//	Decide whether exists the database
+		if (dbLogic.GetDatabase(m_dbEntity) == false)
+		{
+			//	Decide whether creates the database successfully
+			if (dbLogic.CreateDatabase(m_dbEntity) == false)
+			{
+				//	If creates failure, throw an exception
+				throw new CAppException(_T("Failed to create database！"));
+			}
+
+		}
+
+		// Set the document title bar
+		CString strTitle;
+		strTitle.Format(_T("Database(%s)"), m_dbEntity.GetName());
+		this->SetTitle(strTitle);
+	}
+	catch (CAppException* e)	// Catch custom exception
+	{
+		// Throw exception
+		m_strError = e->GetErrorMessage();
+		delete e;
+	}
 
 	return TRUE;
 }
@@ -136,3 +172,40 @@ void CDBMSDoc::Dump(CDumpContext& dc) const
 
 
 // CDBMSDoc 命令
+
+/*****************************************************
+[FunctionName] GetDBEntity
+[Function]	Get the database entity
+[Argument]	void
+[ReturnedValue] CDBEntity: Database entity
+*****************************************************/
+CDBEntity CDBMSDoc::GetDBEntity()
+{
+	return m_dbEntity;
+}
+
+/*****************************************************
+[FunctionName] GetError
+[Function]	Get exception information
+[Argument]	void
+[ReturnedValue] CString: Exception information string
+*****************************************************/
+CString CDBMSDoc::GetError()
+{
+	//	Remove white space characters
+	m_strError.TrimLeft();
+	m_strError.TrimRight();
+
+	return m_strError;
+}
+
+/*****************************************************
+[FunctionName] SetError
+[Function]	Set exception information
+[Argument]	CString strError: Exception information string
+[ReturnedValue] void
+*****************************************************/
+void CDBMSDoc::SetError(CString strError)
+{
+	m_strError = strError;
+}
